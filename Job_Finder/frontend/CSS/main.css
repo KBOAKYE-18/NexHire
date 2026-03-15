@@ -7,14 +7,17 @@
 
 body{
     height:100vh;
-    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+    font-size:1.2rem;
+    font-family:'Inter',sans-serif;
+   
 }
 
 
 .main-container{
     display: flex;
-    height: 100%;
-    background-color:black ;
+    height: 100vh;
+    background-color:black;
 }
 
 .side-bar{
@@ -23,21 +26,27 @@ body{
     width: 20%;
     border-right: 1px solid grey;
     background-color: #0a0a0f;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .main{
-    width:80%;
+    width:100%;
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .body{
     overflow: auto;
     width: 100%;
     display: flex;
+    flex: 1;
     flex-direction: column;
-    height: 480px;
-     border-right: 1px solid grey;
+    min-height: 0;
+    border-right: 1px solid grey;
+    font-size:1rem;
 }
 
 .job{
@@ -45,8 +54,8 @@ body{
     width: 50%;
     display: flex;
     flex-direction: column;
-    overflow: auto;
-    height: 100%;
+    overflow-y: auto;
+    min-height: 0;
 }
 
 .top-bar{
@@ -66,43 +75,42 @@ body{
 
 .job-container{
     display: flex;
-   
+    flex: 1;
+    min-height: 0;
 }
 
 .description{
-    overflow: auto;
+    overflow-y: auto;
     width: 50%;
     display: flex;
     flex-direction: column;
-    height:500px;
-  
+    min-height: 0;
 }
 
 .stat-row {
   display: flex;
-  gap: 28px;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 40px;
   border: 1px solid grey;
   padding: 10px;
   border-radius: 5px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 10px;
   background-color: #0a0a0f;
 }
 
 .stat {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  justify-content: space-evenly;
   
  
 }
 
 .stat-num {
   font-family: 'Syne', sans-serif;
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 1.2rem;
+  font-weight: 500;
   color: white;
   letter-spacing: 1px;
 }
@@ -126,6 +134,7 @@ body{
     padding: 15px;
     border-bottom: 1px solid grey;
     border-right:1px solid grey;
+
 }
 
 button{
@@ -149,20 +158,25 @@ button:hover{
 .title{
     border-bottom: 1px solid grey;
     padding: 10px;
-    width: 70%;
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
     font-size: 1.5rem;
 }
 
 .input{
      border-bottom: 1px solid grey;
-     width: 30%;
+     width: 50%;
      display: flex;
      justify-content: center;
      align-items: center;
+   
+  
 }
 
 input{
-   font-size: 1.2rem;
+   font-size: 1.1rem;
    outline:none;
    border: 1px solid grey;
    border-radius:5px;
@@ -183,6 +197,10 @@ logo {
   margin-bottom: 40px;
   border: 2px solid blue;
   padding: 20px;
+}
+
+.hamburger {
+    display: none;
 }
 
 .logo-icon {
@@ -238,10 +256,16 @@ logo {
 .info{
     margin:5px;
     padding: 10px;
+    
+}
+
+.info-container{
+    padding: 10px;
 }
 
 .details-box{
-   
+    
+    font-size: 1.2rem;
     display: flex;
     padding: 0px;
     width: 100%;
@@ -249,6 +273,176 @@ logo {
 }
 
 
+.stat-row {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin-top: 40px;
+ 
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+ 
+}
+
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #5a5a78;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 36px;
+  background: #2a2a3a;
+}
+
+.circle{
+    border: 1px solid grey ;
+    margin: 5px;
+    
+}
 
 
+/* Tablets */
+@media (max-width: 1024px) {
+    .side-bar { width: 25%;}
+    .main { width: 75%; }
+    .job { width: 55%; }
+    .description { width: 45%; }
+    .title { width: 60%; font-size: 1.2rem; }
+    .input { width: 40%; }
+}
 
+/* Phones */
+@media (max-width: 720px) {
+
+    /* ── Hide sidebar, show hamburger ── */
+    .side-bar {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 75%;
+        height: 100vh;
+        z-index: 1000;
+        background-color: #0a0a0f;
+        border-right: 1px solid #1e1e2e;
+    }
+    .side-bar.open {
+        display: flex;
+    }
+
+    /* overlay behind open menu */
+    .side-bar.open::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 75%;
+        width: 25%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+    }
+
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        padding: 0 16px;
+        cursor: pointer;
+        border-bottom: 1px solid grey;
+        min-width: 50px;
+    }
+    .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background-color: white;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    /* ── Main takes full width ── */
+    .main {
+        width: 100%;
+    }
+
+    /* ── Top bar ── */
+    .title {
+        width: 50%;
+        font-size: 1rem;
+        padding: 10px 12px;
+    }
+    .input {
+        width: 50%;
+        padding: 8px 12px;
+    }
+    input {
+        width: 100%;
+        font-size: 0.95rem;
+        padding: 8px 10px;
+    }
+
+    /* ── Filter chips scroll horizontally ── */
+    .head {
+        justify-content: flex-start;
+        gap: 8px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        border-right: none;
+        padding: 10px 12px;
+        scrollbar-width: none;
+    }
+    .head::-webkit-scrollbar { display: none; }
+    .head button {
+        flex-shrink: 0;
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+
+    /* ── Job list: full width ── */
+    .job-container { flex-direction: column; }
+    .job {
+        width: 100%;
+        min-height: 0;
+        border-right: none;
+    }
+
+    /* ── Description: hidden until card clicked ── */
+    .description {
+        display: none;
+        width: 100%;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 998;
+        background-color: #0a0a0f;
+        overflow-y: auto;
+        padding-bottom: 40px;
+    }
+    .description.active { display: flex; }
+    .job.hidden { display: none; }
+
+    /* ── stat row wraps nicely ── */
+    .stat-row {
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 10px;
+    }
+    .upper-part { padding-bottom: 20px; }
+    .details-box { flex-wrap: wrap; gap: 8px; padding: 10px; }
+}

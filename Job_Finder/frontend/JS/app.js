@@ -3,35 +3,48 @@ let email_element = document.getElementById('email');
 let password_element = document.getElementById('password');
 let btn_element = document.getElementById('btn');
 
+function validate_email(email){
+    let domain = "gmail";
+    let regex = new RegExp(`^[A-Za-z0-9._%+-]+@${domain}\\.com$`);
 
-
-async function sendData() {
-    
-    try {
-        const email = email_element.value;
-        const password = password_element.value;
-
-        console.log("email:",email);
-        console.log("password:",password);
-
-        const response = await fetch("",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json",
-            },
-            body:JSON.stringify({email,password}),
-        });
-
-        
-    } catch (error) {
-        console.log("Login failed:",error.message);
+    if(regex.test(email)){
+        console.log("Valid email");
+    }else{
+        console.log("Invalid email");
+        shake(email_element);
+        return;
     }
-
-
-   
+    
 }
 
 
-btn_element.addEventListener('click',sendData);
+function shake(element) {
+    element.classList.add("shake");
 
+    setTimeout(() => {
+        element.classList.remove("shake");
+    }, 500);
+
+}
+
+btn_element.addEventListener('click',()=>{
+    let email = email_element.value;
+    let password = password_element.value;
+
+    //minor email 
+    validate_email(email);
+
+    let storedEmail = localStorage.getItem('email');
+    let storedPassword = localStorage.getItem('password');
+  
+    if(storedEmail == email && storedPassword == password){
+        console.log('Access Granted');
+        window.location.href = '../HTML/main.html';
+    }else{
+        shake(email);
+        shake(password);
+    }
+
+   
+})
 
