@@ -1,0 +1,122 @@
+body{
+    margin:0;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#0A0A12;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("pexels-yankrukov-8867190.jpg");
+}
+
+
+.signup{
+     width:800px;
+    height:500px;
+    background-color:white;
+    display:flex;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+
+.leftPanel{
+    width:50%;
+    background-image:url("pexels-anniroenkae-3109820.jpg");
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    padding:30px;
+
+    position:relative;
+}
+ .leftPanel::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.4);
+}
+
+.Overlay{
+    position:relative;
+    z-index:1;
+}
+
+.Overlay h1{
+    font-size:39px;
+    margin-bottom:10px;
+}
+
+.Overlay p{
+    font-size:16px;
+}
+
+.rightPanel{
+    width:50%;
+    padding:40px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.rightPanel input{
+    margin-bottom:12px;
+    padding:10px;
+
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+.rightPanel button{
+    padding:12px;
+
+    background:black;
+    color:white;
+
+    border:none;
+    border-radius:6px;
+
+    cursor:pointer;
+}
+
+.rightpanel button:hover{
+   background:rgb(29, 29, 29); 
+}
+
+*{
+    font-family: "Montserrat", sans-serif;
+}
+
+.phoneInput{
+    display:flex;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.countryCode{
+    width:80px;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+.phoneNumber{
+    flex:1;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+#logo{
+    text-align: center;
+    justify-content:center;
+    display: flex;
+    
+}

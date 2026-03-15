@@ -5,7 +5,7 @@
 
 body{
     height: 100vh;
-    font-family: 'DM Sans', sans-serif;
+    font-family:"Montserrat", sans-serif;
 }
 
 .main-container{
@@ -14,7 +14,7 @@ body{
 }
 
 h1, h2, h3, .logo{
-  font-family: 'Syne', sans-serif;
+   font-family:"Montserrat", sans-serif;
   color: white;
 }
 
@@ -35,14 +35,14 @@ h1, h2, h3, .logo{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 15px;
   color: white;
 }
 
 .logo-text {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 22px;
   color: white;
@@ -78,7 +78,7 @@ h1, h2, h3, .logo{
 }
 
 .stat-num {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 26px;
   font-weight: 800;
   color: white;
@@ -134,7 +134,7 @@ button{
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     color: white;
     font-size:1.3rem;
-    font-family: 'Syne', sans-serif;
+    font-family:"Montserrat", sans-serif ;
 }
 
 button:hover{

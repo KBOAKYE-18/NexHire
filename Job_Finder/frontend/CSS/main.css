@@ -9,7 +9,7 @@ body{
     height:100vh;
     overflow: hidden;
     font-size:1.2rem;
-    font-family:'Inter',sans-serif;
+    font-family:'Montserrat', sans-serif;
    
 }
 
@@ -108,7 +108,7 @@ body{
 }
 
 .stat-num {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
   font-weight: 500;
   color: white;
@@ -186,7 +186,7 @@ input{
 }
 
 h1, h2, h3,h4, .logo{
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: white;
 }
 
@@ -211,14 +211,14 @@ logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 15px;
   color: white;
 }
 
 .logo-text {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 22px;
   color: white;
@@ -289,7 +289,7 @@ logo {
 }
 
 .stat-num {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
   color: white;
   letter-spacing: 1px;

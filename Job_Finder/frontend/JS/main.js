@@ -42,7 +42,7 @@ function load_cards() {
         card.innerHTML = `
             <h2>${job_title}</h2>
             <span style = "color:grey;">${location} <span class = "circle" ></span> remote  <span class = "circle" ></span>  full-time</span>
-            <span style="color:rgb(69, 195, 69); font-family:'Pacifico',cursive; font-size: 1.3rem;" >${salary}</span>
+            <span style="color:rgb(69, 195, 69); font-family:'Syne',sans-serif; font-size: 1.3rem;" >${salary}</span>
          `;
 
         body_container.appendChild(card);
