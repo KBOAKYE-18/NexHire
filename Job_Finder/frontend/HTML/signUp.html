@@ -2,9 +2,9 @@
     <!DOCTYPE HTML>
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <title>SIGN UP WEBPAGE FOR WEBSITE</title>
         <link rel="stylesheet" href="../CSS/signUp.css">
     </head>
@@ -19,9 +19,9 @@
         <div class="rightPanel">
            <div id="logo"> <p><img src="../images/logo.png" width="30px"><h4> Next Hire</h4></div>
            <h2>Sign Up</h2>
-            <input type="text" id="fName" placeholder="First Name">
-            <input type="text" id="lName" placeholder="Last Name">
-            <input type="email" id="email" placeholder="Email Address">
+            <input class="fname_element" type="text" id="fName" placeholder="First Name">
+            <input  class="lname_element" type="text" id="lName" placeholder="Last Name">
+            <input  class="email_element" type="email" id="email" placeholder="Email Address">
             <div class="phoneInput">
     <select class="countryCode">
         <option value="+233">🇬🇭 +233</option>
@@ -32,12 +32,21 @@
 
     <input type="tel" class="phoneNumber" placeholder="Phone Number">
 </div>
-            <input type="password" id="password" placeholder="Password">
+            <input class="password" type="password" id="password" placeholder="Password">
 
-           <button>Join Us</button>
-           <p style="text-align: center; font-size: 13px;">Already have an account? <a href="#">Sign in</a></p>
+           <button id="log_in">Join Us</button>
+           <p style="text-align: center; font-size: 13px;">Already have an account? <a href="../HTML/login.html">Sign in</a></p>
         </div>
         </div>
-
+    <script src="../JS/signUp.js"></script>
+    <footer>
+    <div class="socials">
+        <a href="https://facebook.com"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://twitter.com"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://instagram.com"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+    <p>&copy; Nex Hire 2026</p>
+</footer>
     </body>
 </html>

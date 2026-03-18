@@ -9,14 +9,14 @@ function validate_email(email){
 
     if(regex.test(email)){
         console.log("Valid email");
+        return true;
     }else{
         console.log("Invalid email");
         shake(email_element);
-        return;
+        return false;
     }
     
 }
-
 
 function shake(element) {
     element.classList.add("shake");
@@ -31,18 +31,23 @@ btn_element.addEventListener('click',()=>{
     let email = email_element.value;
     let password = password_element.value;
 
-    //minor email 
+    //minor email check
     validate_email(email);
 
-    let storedEmail = localStorage.getItem('email');
-    let storedPassword = localStorage.getItem('password');
-  
-    if(storedEmail == email && storedPassword == password){
+    //parse  from  string to object
+    let storedUser = JSON.parse(localStorage.getItem('user'));
+
+   //validate email
+    if(!validate_email(email)) return;
+    
+    //check if email and password are the same
+    if((storedUser.email == email)&& (storedUser.password == password)){
         console.log('Access Granted');
         window.location.href = '../HTML/main.html';
     }else{
-        shake(email);
-        shake(password);
+        shake(email_element);
+        shake(password_element);
+        console.log("Invalid email or password");
     }
 
    

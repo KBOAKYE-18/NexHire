@@ -46,24 +46,7 @@ flex: 1;
   
 }
 
-#signIn{
-    border-radius:5px;
-    border: 1px solid rgb(75, 75, 75);
-    color:white;
-    font-size: 14px;
-    padding-left:10px;
-    padding-right:10px;
-    padding-top:4px;
-    padding-bottom:4px;
-    cursor:pointer;
-    font-weight:600;
-    background-color:#0A0A12 ;
-    
-}
 
-#signIn:hover{
-    background-color:#303053 ;
-}
 
 #getStarted{
     background-color:#6366F1 ;

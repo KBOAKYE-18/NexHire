@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
@@ -13,30 +14,28 @@
         <div class="side-bar">
             <div class="logo-box">
                 <div class="logo">
-                    <div class="logo-icon">N×</div>
-                    <span class="logo-text">NexHire</span>
+                    <img width="50px" src="../images/logo.png" alt="logo.png">
                 </div>
             </div>
             <div class="side-options">
                 <div class="main">
-                    <div class="options" id="discover">
-                        
+                    <div class="options" id="Home">
+                        <div class="Home-icon"><i class="fa-solid fa-house"></i></div>
+                        <div class="profile-text">Home</div>
                     </div>
-                    <div class="options" id="saved-jobs">
-                        
+                    <div class="log-out" id="logout">
+                        <div class="logout-icon"> <i class="fa-solid fa-right-from-bracket"></i></div>
+                        <div class="profile-text">Log out</div>
                     </div>
-                    <div class="options" id="applications">
-                       
-                    </div>
-                    <div class="options" id="analytics">
-
+                    <div class="profile">
+                        <div class="profile-icon" id="profile-initials"></div>
+                        <div class="profile-info">
+                            <span id="profile-name"></span>
+                            <span id="profile-email"></span>
+                        </div>
                     </div>
                 </div>
-                <div class="profile">
-                    <div class="options" id="myprofile"></div>
-                    <div class="options" id="alerts"></div>
-                    <div class="options" id="settings"></div>
-                </div>
+                
             </div>
         </div>
         <div class="main">
@@ -45,6 +44,7 @@
                     <h4>Discover jobs</h4>
                 </div>
                 <div class="input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" class="search">
                 </div>
                 <div class="hamburger" onclick="toggleMenu()">

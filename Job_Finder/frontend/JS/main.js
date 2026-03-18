@@ -1,9 +1,16 @@
+//select HTML elements
 let body_container = document.querySelector(".body");
 let info_container = document.querySelector('.info-container');
 let upper_part = document.querySelector('.upper-part');
+let home_element = document.getElementById('Home');
+let log_out_element = document.getElementById('logout');
+let main_element = document.querySelector('.main');
 
+//Array of jobs
 let jobs_arr;
 
+
+//entry point
 async function fetch_remote_Jobs() {
     try {
         let response = await fetch("https://remotive.com/api/remote-jobs");
@@ -16,21 +23,47 @@ async function fetch_remote_Jobs() {
             
         }
 
-        load_cards();
+        load_cards(jobs_arr);
     } catch (error) {
         console.error(error.message);
     }
 }
 
 
-function load_cards() {
-    jobs_arr.forEach(job => {
+function displayProfile() {
+    //Display profile
+    let storedUser = JSON.parse(localStorage.getItem('user'));
+    let user_name = storedUser.first_name + " " + storedUser.last_name;
+
+
+    let initials = storedUser.first_name.charAt(0) + storedUser.last_name.charAt(0);
+    document.getElementById('profile-initials').textContent = initials.toUpperCase();
+    document.getElementById('profile-name').textContent = user_name;
+    document.getElementById('profile-email').textContent = storedUser.email;
+}
+
+displayProfile();
+
+/*Loads card is a function that renders the job fetched using the fetch API it takes data and renders
+  avoiding rendundancy when it comes to the search functionality and update needed to apply in the 
+  future making it reusable and simple;
+*/
+
+
+//Job cards
+function load_cards(arr) {
+        arr.forEach((job,index) => {
         let job_title = job.title;
-        let salary = job.salary || "Salary not specified";
+        let salary = job.salary || "salary not specified";
         let location = job.candidate_required_location;
         let description = job.description;
         let company_name = job.company_name;
         let category = job.category;
+
+        //Letter Boxes
+        const colors = ['#6c63ff','#f5a623','#e74c3c','#2ecc71','#3498db','#e67e22','#9b59b6'];
+        const color = colors[index % colors.length];
+        const initial = company_name.charAt(0).toUpperCase();
 
         
         let cleanDescription = description.replace(/style="[^"]*"/g, "").replace(/<img[^>]*>/g, "");
@@ -40,10 +73,23 @@ function load_cards() {
         card.classList.add('jobs');
         
         card.innerHTML = `
-            <h2>${job_title}</h2>
-            <span style = "color:grey;">${location} <span class = "circle" ></span> remote  <span class = "circle" ></span>  full-time</span>
-            <span style="color:rgb(69, 195, 69); font-family:'Syne',sans-serif; font-size: 1.3rem;" >${salary}</span>
-         `;
+    <div class = "card-container">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div style="width:36px; height:36px; border-radius:8px; background:${color};
+                    display:flex; align-items:center; justify-content:center;
+                    font-weight:700; font-size:1rem; color:white; flex-shrink:0;">
+                ${initial}
+            </div>
+            <h2 style="font-size:1.1rem;">${job_title}</h2>
+        </div>
+        <div class = "b_container">
+            <div style="color:grey;" class = "tiny-boxes">${location}</div>
+            <div style="color:grey;" class = "tiny-boxes">remote</div>
+            <div style="color:grey;" class = "tiny-boxes">full-time</div>
+        </div>
+        <div style="color:rgb(69,195,69);  font-family:'Syne',sans-serif; font-size:1.2rem;">${salary}</div>
+    </div>
+  `;
 
         body_container.appendChild(card);
 
@@ -56,13 +102,8 @@ function load_cards() {
             let box = document.createElement('div');
 
             const work_type = "remote";
-
-
             box.classList.add('box');
-
-           
             info.classList.add('info');
-
 
             title_head.innerHTML = `
                 <h2 style = "font-size:1.7rem;">${job_title}</h2>
@@ -108,6 +149,36 @@ function convertToPlainText(html){
 }
 
 
+log_out_element.addEventListener('click',()=>{
+    window.location.href = `../HTML/login.html`;
+})
+
+home_element.addEventListener('click',()=>{
+     window.location.href = `../HTML/index.html`;
+})
+
+// Search functionality
+let search_input = document.querySelector('.search');
+
+search_input.addEventListener('input', () => {
+    let query = search_input.value.toLowerCase();
+
+    // Clear current cards
+    body_container.innerHTML = "";
+
+    // Filter jobs
+    let filtered_jobs = jobs_arr.filter(job => {
+        return (
+            job.title.toLowerCase().includes(query) ||
+            job.company_name.toLowerCase().includes(query) ||
+            job.category.toLowerCase().includes(query)
+        );
+    });
+
+    // Render filtered jobs
+    load_cards(filtered_jobs);
+    
+});
 
 
 fetch_remote_Jobs();

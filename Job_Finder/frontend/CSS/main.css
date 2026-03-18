@@ -8,7 +8,7 @@
 body{
     height:100vh;
     overflow: hidden;
-    font-size:1.2rem;
+    font-size:1rem;
     font-family:'Montserrat', sans-serif;
    
 }
@@ -36,7 +36,84 @@ body{
     flex-direction: column;
     height: 100vh;
     overflow: hidden;
+   
 }
+
+#Home{
+    
+    display: flex;
+    margin:10px;
+    padding: 10px;
+    border-radius:5px;
+    gap:10px;
+    border: 1px solid grey;
+}
+
+.log-out{
+   
+    display: flex;
+    margin:10px;
+    padding: 10px;
+    border-radius:5px;
+    gap:10px;
+    border: 1px solid grey;
+}
+
+.log-out:hover{
+    background: rgba(108, 99, 255, 0.15);
+    color: #6c63ff;
+    cursor: pointer;
+}
+
+#Home:hover{
+    background: rgba(108, 99, 255, 0.15);
+    color: #6c63ff;
+    cursor: pointer;
+}
+
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 12px 10px;
+    border-bottom: 1px solid grey;
+    margin-top: auto;
+    font-family: 'Montserrat',sans-serif;
+}
+
+.profile-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #6c63ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.profile-info span {
+    font-size: 0.75rem;
+    color: grey;
+}
+
+#profile-name {
+    color: white !important;
+    font-weight: 600;
+}
+
+
+
 
 .body{
     overflow: auto;
@@ -128,6 +205,28 @@ body{
   background: #2a2a3a;
 }
 
+.b_container{
+    display: flex;
+    width:100%;
+     gap: 20px;
+}
+
+.tiny-boxes{
+    border: 1px solid grey;
+    padding-left:10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    margin-top:5px;
+    margin-bottom: 5px;
+    font-family: 'Syne',sans-serif;
+}
+
+.card-container{
+    
+    display: flex;
+    flex-direction: column;
+}
+
 .head{
     display: flex;
     justify-content: space-evenly;
@@ -165,24 +264,32 @@ button:hover{
     font-size: 1.5rem;
 }
 
-.input{
-     border-bottom: 1px solid grey;
-     width: 50%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-   
-  
+.input {
+    position: relative; /* important */
+    border-bottom: 1px solid grey;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-input{
-   font-size: 1.1rem;
-   outline:none;
-   border: 1px solid grey;
-   border-radius:5px;
-   background-color: black;
-   color: grey;
-   padding: 5px;
+.input i {
+    position: absolute;
+    left: 120px;
+    color: grey;
+    font-size: 0.9rem;
+}
+
+.input input {
+    width: 60%;
+    font-size: 1.1rem;
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: black;
+    color: grey;
+    padding: 5px 5px 5px 30px; /* space for icon */
+    
 }
 
 h1, h2, h3,h4, .logo{
@@ -190,39 +297,13 @@ h1, h2, h3,h4, .logo{
   color: white;
 }
 
-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 40px;
-  border: 2px solid blue;
-  padding: 20px;
-}
+
 
 .hamburger {
     display: none;
 }
 
-.logo-icon {
-  width: 38px;
-  height: 38px;
-  background: #6c63ff;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 15px;
-  color: white;
-}
 
-.logo-text {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  color: white;
-}
 
 .jobs {
     display: flex;
@@ -322,7 +403,20 @@ logo {
     .job { width: 55%; }
     .description { width: 45%; }
     .title { width: 60%; font-size: 1.2rem; }
-    .input { width: 40%; }
+    
+    .input {
+        width: 80%;
+    }
+
+    .input input {
+        font-size: 1.2rem;
+        padding: 10px 10px 10px 38px;
+    }
+
+    .input i {
+        font-size: 1rem;
+        left: 12px;
+    }
 }
 
 /* Phones */
@@ -386,14 +480,22 @@ logo {
         font-size: 1rem;
         padding: 10px 12px;
     }
+
+    
     .input {
-        width: 50%;
-        padding: 8px 12px;
-    }
-    input {
         width: 100%;
-        font-size: 0.95rem;
-        padding: 8px 10px;
+       
+    }
+
+    .input input {
+        font-size: 1.2rem;
+        padding: 12px 12px 12px 40px;
+        border-radius: 8px;
+    }
+
+    .input i {
+        font-size: 1.1rem;
+        left: 50px;
     }
 
     /* ── Filter chips scroll horizontally ── */
